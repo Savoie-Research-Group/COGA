@@ -1,0 +1,23 @@
+#!/bin/sh 
+#SBATCH --job-name GA_name
+#SBATCH -A bsavoie
+#SBATCH --nodes=1
+#SBATCH --ntasks=20
+#SBATCH --time=48:00:00
+#SBATCH --output GA_name.out
+#SBATCH --error GA_name.err
+
+#cd into submission trajectory
+cd ## ENTER WORKING DIRECTORY ##
+echo Working directory is ## ENTER WORKING DIRECTORY ##
+echo Running on host `hostname`
+echo Time is `date`
+
+
+
+cd .
+python ~/bin/CG_Crystal/auto_genetic_martini.py #XYZ #CIF #MAP -map_mols 1 -gens 20 -specs 20 -f_keep 0.3 > GA.log       &
+wait
+
+cd ## ENTER WORKING DIRECTORY ## &
+wait

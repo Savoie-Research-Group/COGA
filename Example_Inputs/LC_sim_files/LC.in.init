@@ -1,0 +1,566 @@
+# LAMMPS input file for equilibration and annealing of liquid crystaline systems from GA. 
+
+#===========================================================
+# Variables
+#===========================================================
+
+# File-wide variables
+variable    settings_name        index    spec0.in.settings
+variable    prefix               index    spec0
+variable    avg_freq             index    1000
+variable    coords_freq          index    1000
+variable    thermo_freq          index    1000
+variable    dump4avg             index    100
+variable    vseed                index    626  
+
+# Reshape
+variable    nSteps_reshape        index    1000000          # 1000.0 ps (1.0 ns) box reshaping (NVT)
+variable    temp_reshape          index    10          #  10 K
+
+# Ramp 1
+variable    nSteps_ramp1        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq1        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq1         index    1.0         # 1.0 atm
+variable    temp_eq1          index    59          # 59 K
+
+# Ramp 2
+variable    nSteps_ramp2        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq2        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq2         index    1.0         # 1.0 atm
+variable    temp_eq2          index    108          # 108 K
+
+# Ramp 3
+variable    nSteps_ramp3        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq3        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq3         index    1.0         # 1.0 atm
+variable    temp_eq3          index    157          # 157 K
+
+# Ramp 4
+variable    nSteps_ramp4        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq4        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq4         index    1.0         # 1.0 atm
+variable    temp_eq4          index    206          # 206 K
+
+# Ramp 5
+variable    nSteps_ramp5        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq5        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq5         index    1.0         # 1.0 atm
+variable    temp_eq5          index    255          # 255 K
+
+# Ramp 6
+variable    nSteps_ramp6        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq6        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq6         index    1.0         # 1.0 atm
+variable    temp_eq6          index    304          # 304 K
+
+# Ramp 7
+variable    nSteps_ramp7        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq7        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq7         index    1.0         # 1.0 atm
+variable    temp_eq7          index    353          # 353 K
+
+# Ramp 8
+variable    nSteps_ramp8        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq8        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq8         index    1.0         # 1.0 atm
+variable    temp_eq8          index    402          # 402 K
+
+# Ramp 9
+variable    nSteps_ramp9        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq9        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq9         index    1.0         # 1.0 atm
+variable    temp_eq9          index    451          # 451 K
+
+# Ramp 10
+variable    nSteps_ramp10        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq10        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq10         index    1.0         # 1.0 atm
+variable    temp_eq10          index    500          # 500 K
+
+# Ramp 11
+variable    nSteps_ramp11        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq11        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq11         index    1.0         # 1.0 atm
+variable    temp_eq11          index    550          # 550 K
+
+# Ramp 12
+variable    nSteps_ramp12        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq12        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq12         index    1.0         # 1.0 atm
+variable    temp_eq12          index    600          # 600 K
+
+# Ramp 13
+variable    nSteps_ramp13        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq13        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq13         index    1.0         # 1.0 atm
+variable    temp_eq13          index    650          # 650 K
+
+# Ramp 14
+variable    nSteps_ramp14        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq14        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq14         index    1.0         # 1.0 atm
+variable    temp_eq14          index    700          # 700 K
+
+# Ramp 15
+variable    nSteps_ramp15        index    10000000          # 10000.0 ps (10.0 ns) ramp to higher temperature (NPT) 
+
+# Equilibration at High Temp
+variable    nSteps_eq15        index    10000000          # 10000.0 ps (10.0 ns) high temp equilibration (NPT)
+variable    press_eq15         index    1.0         # 1.0 atm
+variable    temp_eq15          index    750          # 750 K
+
+log ${prefix}dila.log
+#===========================================================
+# GENERAL PROCEDURES
+#===========================================================
+units		real	# g/mol, angstroms, fs, kcal/mol, K, atm, charge*angstrom
+dimension	3	# 3 dimensional simulation
+newton		off	# use Newton's 3rd law
+boundary	p p p	# periodic boundary conditions 
+atom_style	full    # molecular + charge
+#===========================================================
+# FORCE FIELD DEFINITION
+#===========================================================
+special_bonds  lj   0.0 0.0 0.0  coul 0.0 0.0 0.0     # NO     1-4 LJ/COUL interactions
+pair_style   hybrid lj/gromacs/coul/gromacs 9.0 12.0 0.0 12.0 # outer_LJ outer_Coul (cutoff values, see LAMMPS Doc)
+bond_style   hybrid harmonic         # parameters needed: k_bond, r0
+angle_style  hybrid harmonic         # parameters needed: k_theta, theta0
+pair_modify    shift yes mix arithmetic       # using Lorenz-Berthelot mixing rules
+#===========================================================
+# SETUP SIMULATIONS
+#===========================================================
+# READ IN COEFFICIENTS/COORDINATES/TOPOLOGY
+read_data   spec0.data
+include ${prefix}.in.settings
+# SET RUN PARAMETERS
+timestep	1.0		# fs
+run_style	verlet 		# Velocity-Verlet integrator
+neigh_modify every 1 delay 0 check no one 10000 # More relaxed rebuild criteria can be used
+# SET OUTPUTS
+thermo_style    custom step temp vol density etotal pe ebond eangle edihed ecoul elong evdwl enthalpy press
+thermo_modify   format float %14.6f
+thermo ${thermo_freq}
+# DECLARE RELEVANT OUTPUT VARIABLES
+variable        my_step equal   step
+variable        my_temp equal   temp
+variable        my_rho  equal   density
+variable        my_pe   equal   pe
+variable        my_ebon equal   ebond
+variable        my_eang equal   eangle
+variable        my_edih equal   edihed
+variable        my_evdw equal   evdwl
+variable        my_eel  equal   (ecoul+elong)
+variable        my_ent  equal   enthalpy
+variable        my_P    equal   press
+variable        my_vol  equal   vol
+variable        my_etot equal   etotal
+fix  averages all ave/time ${dump4avg} $(v_avg_freq/v_dump4avg) ${avg_freq} v_my_temp v_my_rho v_my_vol v_my_pe v_my_edih v_my_evdw v_my_eel v_my_ent v_my_P v_my_etot file thermo.avg format %20.10g
+
+#===========================================================
+# Reshape Box (NVT) 
+#===========================================================
+
+dump reshape all custom ${coords_freq} ${prefix}.reshape.lammpstrj id mol type x y z
+dump_modify reshape sort id format float %20.10g
+fix reshape  all deform 1 x final 0.0 122.0 y final 0.0 122.0 z final 0.0 122.0 units box
+fix dynamics all nvt temp ${temp_reshape} ${temp_reshape} 100.0
+velocity all create ${temp_reshape} ${vseed}
+run ${nSteps_reshape}
+unfix reshape
+unfix dynamics
+undump reshape
+write_restart ${prefix}.reshape.end.restart
+
+#===========================================================
+# Ramp 1 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp1 all custom ${coords_freq} ${prefix}.ramp1.lammpstrj id mol type x y z
+dump_modify ramp1 sort id format float %20.10g
+fix ramp1 all npt temp ${temp_reshape} ${temp_eq1} 100.0 iso ${press_eq1} ${press_eq1} 1000.0
+run ${nSteps_ramp1}
+unfix ramp1
+undump ramp1
+write_restart ${prefix}.ramp1.end.restart
+
+#===========================================================
+# Equilibration 1 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq1 all custom ${coords_freq} ${prefix}.eq1.lammpstrj id mol type x y z
+dump_modify eq1 sort id format float %20.10g
+fix eq1 all npt temp ${temp_eq1} ${temp_eq1} 100.0 iso ${press_eq1} ${press_eq1} 1000.0
+run ${nSteps_eq1}
+unfix eq1
+undump eq1
+write_restart ${prefix}.eq1.end.restart
+
+#===========================================================
+# Ramp 2 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp2 all custom ${coords_freq} ${prefix}.ramp2.lammpstrj id mol type x y z
+dump_modify ramp2 sort id format float %20.10g
+fix ramp2 all npt temp ${temp_eq1} ${temp_eq2} 100.0 iso ${press_eq2} ${press_eq2} 1000.0
+run ${nSteps_ramp2}
+unfix ramp2
+undump ramp2
+write_restart ${prefix}.ramp2.end.restart
+
+#===========================================================
+# Equilibration 2 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq2 all custom ${coords_freq} ${prefix}.eq2.lammpstrj id mol type x y z
+dump_modify eq2 sort id format float %20.10g
+fix eq2 all npt temp ${temp_eq2} ${temp_eq2} 100.0 iso ${press_eq2} ${press_eq2} 1000.0
+run ${nSteps_eq2}
+unfix eq2
+undump eq2
+write_restart ${prefix}.eq2.end.restart
+
+#===========================================================
+# Ramp 3 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp3 all custom ${coords_freq} ${prefix}.ramp3.lammpstrj id mol type x y z
+dump_modify ramp3 sort id format float %20.10g
+fix ramp3 all npt temp ${temp_eq2} ${temp_eq3} 100.0 iso ${press_eq3} ${press_eq3} 1000.0
+run ${nSteps_ramp3}
+unfix ramp3
+undump ramp3
+write_restart ${prefix}.ramp3.end.restart
+
+#===========================================================
+# Equilibration 3 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq3 all custom ${coords_freq} ${prefix}.eq3.lammpstrj id mol type x y z
+dump_modify eq3 sort id format float %20.10g
+fix eq3 all npt temp ${temp_eq3} ${temp_eq3} 100.0 iso ${press_eq3} ${press_eq3} 1000.0
+run ${nSteps_eq3}
+unfix eq3
+undump eq3
+write_restart ${prefix}.eq3.end.restart
+
+#===========================================================
+# Ramp 4 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp4 all custom ${coords_freq} ${prefix}.ramp4.lammpstrj id mol type x y z
+dump_modify ramp4 sort id format float %20.10g
+fix ramp4 all npt temp ${temp_eq3} ${temp_eq4} 100.0 iso ${press_eq4} ${press_eq4} 1000.0
+run ${nSteps_ramp4}
+unfix ramp4
+undump ramp4
+write_restart ${prefix}.ramp4.end.restart
+
+#===========================================================
+# Equilibration 4 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq4 all custom ${coords_freq} ${prefix}.eq4.lammpstrj id mol type x y z
+dump_modify eq4 sort id format float %20.10g
+fix eq4 all npt temp ${temp_eq4} ${temp_eq4} 100.0 iso ${press_eq4} ${press_eq4} 1000.0
+run ${nSteps_eq4}
+unfix eq4
+undump eq4
+write_restart ${prefix}.eq4.end.restart
+
+#===========================================================
+# Ramp 5 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp5 all custom ${coords_freq} ${prefix}.ramp5.lammpstrj id mol type x y z
+dump_modify ramp5 sort id format float %20.10g
+fix ramp5 all npt temp ${temp_eq4} ${temp_eq5} 100.0 iso ${press_eq5} ${press_eq5} 1000.0
+run ${nSteps_ramp5}
+unfix ramp5
+undump ramp5
+write_restart ${prefix}.ramp5.end.restart
+
+#===========================================================
+# Equilibration 5 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq5 all custom ${coords_freq} ${prefix}.eq5.lammpstrj id mol type x y z
+dump_modify eq5 sort id format float %20.10g
+fix eq5 all npt temp ${temp_eq5} ${temp_eq5} 100.0 iso ${press_eq5} ${press_eq5} 1000.0
+run ${nSteps_eq5}
+unfix eq5
+undump eq5
+write_restart ${prefix}.eq5.end.restart
+
+#===========================================================
+# Ramp 6 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp6 all custom ${coords_freq} ${prefix}.ramp6.lammpstrj id mol type x y z
+dump_modify ramp6 sort id format float %20.10g
+fix ramp6 all npt temp ${temp_eq5} ${temp_eq6} 100.0 iso ${press_eq6} ${press_eq6} 1000.0
+run ${nSteps_ramp6}
+unfix ramp6
+undump ramp6
+write_restart ${prefix}.ramp6.end.restart
+
+#===========================================================
+# Equilibration 6 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq6 all custom ${coords_freq} ${prefix}.eq6.lammpstrj id mol type x y z
+dump_modify eq6 sort id format float %20.10g
+fix eq6 all npt temp ${temp_eq6} ${temp_eq6} 100.0 iso ${press_eq6} ${press_eq6} 1000.0
+run ${nSteps_eq6}
+unfix eq6
+undump eq6
+write_restart ${prefix}.eq6.end.restart
+
+#===========================================================
+# Ramp 7 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp7 all custom ${coords_freq} ${prefix}.ramp7.lammpstrj id mol type x y z
+dump_modify ramp7 sort id format float %20.10g
+fix ramp7 all npt temp ${temp_eq6} ${temp_eq7} 100.0 iso ${press_eq7} ${press_eq7} 1000.0
+run ${nSteps_ramp7}
+unfix ramp7
+undump ramp7
+write_restart ${prefix}.ramp7.end.restart
+
+#===========================================================
+# Equilibration 7 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq7 all custom ${coords_freq} ${prefix}.eq7.lammpstrj id mol type x y z
+dump_modify eq7 sort id format float %20.10g
+fix eq7 all npt temp ${temp_eq7} ${temp_eq7} 100.0 iso ${press_eq7} ${press_eq7} 1000.0
+run ${nSteps_eq7}
+unfix eq7
+undump eq7
+write_restart ${prefix}.eq7.end.restart
+
+#===========================================================
+# Ramp 8 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp8 all custom ${coords_freq} ${prefix}.ramp8.lammpstrj id mol type x y z
+dump_modify ramp8 sort id format float %20.10g
+fix ramp8 all npt temp ${temp_eq7} ${temp_eq8} 100.0 iso ${press_eq8} ${press_eq8} 1000.0
+run ${nSteps_ramp8}
+unfix ramp8
+undump ramp8
+write_restart ${prefix}.ramp8.end.restart
+
+#===========================================================
+# Equilibration 8 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq8 all custom ${coords_freq} ${prefix}.eq8.lammpstrj id mol type x y z
+dump_modify eq8 sort id format float %20.10g
+fix eq8 all npt temp ${temp_eq8} ${temp_eq8} 100.0 iso ${press_eq8} ${press_eq8} 1000.0
+run ${nSteps_eq8}
+unfix eq8
+undump eq8
+write_restart ${prefix}.eq8.end.restart
+
+#===========================================================
+# Ramp 9 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp9 all custom ${coords_freq} ${prefix}.ramp9.lammpstrj id mol type x y z
+dump_modify ramp9 sort id format float %20.10g
+fix ramp9 all npt temp ${temp_eq8} ${temp_eq9} 100.0 iso ${press_eq9} ${press_eq9} 1000.0
+run ${nSteps_ramp9}
+unfix ramp9
+undump ramp9
+write_restart ${prefix}.ramp9.end.restart
+
+#===========================================================
+# Equilibration 9 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq9 all custom ${coords_freq} ${prefix}.eq9.lammpstrj id mol type x y z
+dump_modify eq9 sort id format float %20.10g
+fix eq9 all npt temp ${temp_eq9} ${temp_eq9} 100.0 iso ${press_eq9} ${press_eq9} 1000.0
+run ${nSteps_eq9}
+unfix eq9
+undump eq9
+write_restart ${prefix}.eq9.end.restart
+
+#===========================================================
+# Ramp 10 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp10 all custom ${coords_freq} ${prefix}.ramp10.lammpstrj id mol type x y z
+dump_modify ramp10 sort id format float %20.10g
+fix ramp10 all npt temp ${temp_eq9} ${temp_eq10} 100.0 iso ${press_eq10} ${press_eq10} 1000.0
+run ${nSteps_ramp10}
+unfix ramp10
+undump ramp10
+write_restart ${prefix}.ramp10.end.restart
+
+#===========================================================
+# Equilibration 10 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq10 all custom ${coords_freq} ${prefix}.eq10.lammpstrj id mol type x y z
+dump_modify eq10 sort id format float %20.10g
+fix eq10 all npt temp ${temp_eq10} ${temp_eq10} 100.0 iso ${press_eq10} ${press_eq10} 1000.0
+run ${nSteps_eq10}
+unfix eq10
+undump eq10
+write_restart ${prefix}.eq10.end.restart
+
+#===========================================================
+# Ramp 11 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp11 all custom ${coords_freq} ${prefix}.ramp11.lammpstrj id mol type x y z
+dump_modify ramp11 sort id format float %20.10g
+fix ramp11 all npt temp ${temp_eq10} ${temp_eq11} 100.0 iso ${press_eq11} ${press_eq11} 1000.0
+run ${nSteps_ramp11}
+unfix ramp11
+undump ramp11
+write_restart ${prefix}.ramp11.end.restart
+
+#===========================================================
+# Equilibration 11 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq11 all custom ${coords_freq} ${prefix}.eq11.lammpstrj id mol type x y z
+dump_modify eq11 sort id format float %20.10g
+fix eq11 all npt temp ${temp_eq11} ${temp_eq11} 100.0 iso ${press_eq11} ${press_eq11} 1000.0
+run ${nSteps_eq11}
+unfix eq11
+undump eq11
+write_restart ${prefix}.eq11.end.restart
+
+#===========================================================
+# Ramp 12 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp12 all custom ${coords_freq} ${prefix}.ramp12.lammpstrj id mol type x y z
+dump_modify ramp12 sort id format float %20.10g
+fix ramp12 all npt temp ${temp_eq11} ${temp_eq12} 100.0 iso ${press_eq12} ${press_eq12} 1000.0
+run ${nSteps_ramp12}
+unfix ramp12
+undump ramp12
+write_restart ${prefix}.ramp12.end.restart
+
+#===========================================================
+# Equilibration 12 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq12 all custom ${coords_freq} ${prefix}.eq12.lammpstrj id mol type x y z
+dump_modify eq12 sort id format float %20.10g
+fix eq12 all npt temp ${temp_eq12} ${temp_eq12} 100.0 iso ${press_eq12} ${press_eq12} 1000.0
+run ${nSteps_eq12}
+unfix eq12
+undump eq12
+write_restart ${prefix}.eq12.end.restart
+
+#===========================================================
+# Ramp 13 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp13 all custom ${coords_freq} ${prefix}.ramp13.lammpstrj id mol type x y z
+dump_modify ramp13 sort id format float %20.10g
+fix ramp13 all npt temp ${temp_eq12} ${temp_eq13} 100.0 iso ${press_eq13} ${press_eq13} 1000.0
+run ${nSteps_ramp13}
+unfix ramp13
+undump ramp13
+write_restart ${prefix}.ramp13.end.restart
+
+#===========================================================
+# Equilibration 13 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq13 all custom ${coords_freq} ${prefix}.eq13.lammpstrj id mol type x y z
+dump_modify eq13 sort id format float %20.10g
+fix eq13 all npt temp ${temp_eq13} ${temp_eq13} 100.0 iso ${press_eq13} ${press_eq13} 1000.0
+run ${nSteps_eq13}
+unfix eq13
+undump eq13
+write_restart ${prefix}.eq13.end.restart
+
+#===========================================================
+# Ramp 14 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp14 all custom ${coords_freq} ${prefix}.ramp14.lammpstrj id mol type x y z
+dump_modify ramp14 sort id format float %20.10g
+fix ramp14 all npt temp ${temp_eq13} ${temp_eq14} 100.0 iso ${press_eq14} ${press_eq14} 1000.0
+run ${nSteps_ramp14}
+unfix ramp14
+undump ramp14
+write_restart ${prefix}.ramp14.end.restart
+
+#===========================================================
+# Equilibration 14 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq14 all custom ${coords_freq} ${prefix}.eq14.lammpstrj id mol type x y z
+dump_modify eq14 sort id format float %20.10g
+fix eq14 all npt temp ${temp_eq14} ${temp_eq14} 100.0 iso ${press_eq14} ${press_eq14} 1000.0
+run ${nSteps_eq14}
+unfix eq14
+undump eq14
+write_restart ${prefix}.eq14.end.restart
+
+#===========================================================
+# Ramp 15 (NPT, Nose-Hoover)
+#===========================================================
+
+dump ramp15 all custom ${coords_freq} ${prefix}.ramp15.lammpstrj id mol type x y z
+dump_modify ramp15 sort id format float %20.10g
+fix ramp15 all npt temp ${temp_eq14} ${temp_eq15} 100.0 iso ${press_eq15} ${press_eq15} 1000.0
+run ${nSteps_ramp15}
+unfix ramp15
+undump ramp15
+write_restart ${prefix}.ramp15.end.restart
+
+#===========================================================
+# Equilibration 15 (NPT, Nose-Hoover)
+#===========================================================
+
+dump eq15 all custom ${coords_freq} ${prefix}.eq15.lammpstrj id mol type x y z
+dump_modify eq15 sort id format float %20.10g
+fix eq15 all npt temp ${temp_eq15} ${temp_eq15} 100.0 iso ${press_eq15} ${press_eq15} 1000.0
+run ${nSteps_eq15}
+unfix eq15
+undump eq15
+write_restart ${prefix}.eq15.end.restart
+
+#===========================================================
+# Clean and exit
+#===========================================================
+
+unfix averages

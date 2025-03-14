@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#SBATCH --job-name restart
+#SBATCH -o restart.out
+#SBATCH -e restart.err
+#SBATCH -A bsavoie
+#SBATCH -N 1
+#SBATCH -n 128
+#SBATCH -t 14-00:00:00
+
+# Write out job information
+echo "Running on host: $SLURM_NODELIST"
+echo "Running on node(s): $SLURM_NNODES"
+echo "Number of processors: $SLURM_NPROCS"
+echo "Current working directory: $SLURM_SUBMIT_DIR"
+
+# User supplied shell commands
+cd $SLURM_SUBMIT_DIR
+
+# Run script
+echo "Start time: $(date)"
+/apps/cent7/intel/impi/2017.1.132/bin64/mpirun -np $SLURM_NPROCS /depot/bsavoie/apps/lammps/exe/lmp_mpi_190322 -in  restart.in.init > restart_lammps.out & wait 
+bash crys_autocorr.sh & wait
+echo "End time: $(date)"

@@ -1,0 +1,25 @@
+#!/bin/sh 
+#SBATCH --job-name GA_C6BP##
+#SBATCH -A bsavoie
+#SBATCH --nodes=1
+#SBATCH --ntasks=20
+#SBATCH --time=120:00:00
+#SBATCH --output GA_C6BP.out
+#SBATCH --error GA_C6BP.err
+
+#cd into submission trajectory
+cd /scratch/bell/ddfortne/CGLC/00_C6BP # CHANGE DIRECTORY
+rm -r gen* # REMOVE PREVIOUS FILES
+echo Working directory is /scratch/bell/ddfortne/CGLC/00_C6BP # CHANGE DIRECTORY
+echo Running on host `hostname`
+echo Time is `date`
+
+
+# Modify for system settings
+cd .
+python -u ~/bin/CG_Crystal/auto_genetic_martini.py C6BP_TEMPO_0m.xyz C6BP_TEMPO_0m.cif C6BP_map0.txt -map_mols 1 -gens 50 -specs 50 -f_keep 0.3 -mut_range 2.0 -epmax 2.0 -ep_mut_range 0.25 -alpha 0.125 -sr 0.0 -gaus_std 0.25 -p_scale_vals "1 3 500" -scale_switch 0.5 -time_switch 0.8 -loss_func "add" -order "0-14" -dimsf "12 12 12" --p_scale --v_scale --epsilon --cell_sym --no_dila > GA.log       &
+wait
+
+echo Time is `date`
+cd /scratch/bell/ddfortne/CGLC/00_C6BP & # CHANGE DIRECTORY
+wait
