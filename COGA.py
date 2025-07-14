@@ -60,7 +60,7 @@ def main(argv):
     parser.add_argument('-xmin', dest='xmin', type=int, default=2, help='Minimum value your parameters can assume.')
     parser.add_argument('-xmax', dest='xmax', type=int, default=10, help='Maximum value your parameters can assume.')
     parser.add_argument('-ep_mut_range', dest='ep_mut_range', type=float, default=0.25, help='Range over which parameters can mutate.')
-    parser.add_argument('-epmin', dest='epmin', type=float, default=1.0, help='Minimum value your parameters can assume.')
+    parser.add_argument('-epmin', dest='epmin', type=float, default=0.0, help='Minimum value your parameters can assume.')
     parser.add_argument('-epmax', dest='epmax', type=float, default=2.0, help='Maximum value your parameters can assume.')
     parser.add_argument('-sr', dest='sr', type=float, default=9999999.0, help='Smooth Radius. Radius about which rdf will be introduced Gaussian error. If not specified, rdf will not be smoothed.')
     parser.add_argument('-gaus_std', dest='gaus_std', type=float, default=0.25, help='Standard deviation used in gaussian calculation.')
